@@ -52,7 +52,7 @@ function toggleMenu() {
     } else {
         isOpen.style.display = "block";
     }
-};
+}
 /*********************/
 /*    Menu Active    */
 /*********************/
@@ -80,7 +80,7 @@ function getClosest(elem, selector) {
     }
     return null;
 
-};
+}
 
 function activateMenu() {
     var menuItems = document.getElementsByClassName("sub-menu-item");
