@@ -1,7 +1,4 @@
 import './bootstrap';
-
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+import './main.js';
+import './plugins.init.js';
+import './easy_background.js';
