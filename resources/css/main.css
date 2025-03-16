@@ -2104,10 +2104,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   background-color: transparent;
   -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 500ms;
-          transition-duration: 500ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 100ms;
+          transition-duration: 100ms;
+  /*-webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);*/
+  /*        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);*/
 }
 #topnav .logo{
   --tw-text-opacity: 1 !important;

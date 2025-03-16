@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="/assets/uzte.svg" />
     <!-- Css -->
     <link href="/assets/libs/tiny-slider/tiny-slider.css" rel="stylesheet">
     <link href="/assets/libs/tobii/css/tobii.min.css" rel="stylesheet">
