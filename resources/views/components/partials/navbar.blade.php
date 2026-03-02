@@ -8,7 +8,7 @@
                         <i data-feather="phone" class="text-green-600 size-4"></i>
                         <a href="tel:+998712330197" class="ms-2 text-gray-700 hover:text-gray-900">+998 71 233-01-97</a>
                     </li>
-                    <li class="inline-flex items-center ms-2">
+                    <li class="inline-flex items-center ms-2 border-l-2 px-3">
                         <i data-feather="mail" class="text-green-600 size-4"></i>
                         <a href="mailto:contact@example.com" class="ms-2 text-gray-700 hover:text-gray-900">info@uzte.uz</a>
                     </li>
@@ -31,12 +31,12 @@
 <!-- TAGLINE END-->
 
 <!-- Start Navbar -->
-<nav id="topnav" class="defaultscroll is-sticky tagline-height">
+<nav id="topnav" class="defaultscroll is-sticky tagline-height p-1">
 
-    <div class="container h-4">
+    <div class="container">
         <!-- Logo container-->
-        <a class="logo" href="/">
-            <img src="assets/uzte-logo.png" class="inline-block dark:hidden" alt="">
+        <a class="relative logo -mb-10 size-28" href="/">
+            <img src="assets/uzte.svg" class="inline-block dark:hidden" alt="">
             <img src="assets/uzte-logo.png" class="hidden dark:inline-block" alt="">
         </a>
         <!-- End Logo container-->
