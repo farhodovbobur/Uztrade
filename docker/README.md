@@ -1,81 +1,81 @@
-# Docker bilan ishga tushirish
+# Running with Docker
 
-## 1. Birinchi marta ishga tushirish
+## 1. First-time setup
 
 ```bash
-# Konteynerlarni build qilish va ishga tushirish
+# Build and start containers
 docker compose up -d --build
 
-# Permissionlarni to'g'rilash (bir marta)
+# Fix permissions (once)
 docker compose exec -u root uzte-app sh -c \
   "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && chmod -R 775 /var/www/storage /var/www/bootstrap/cache"
 
-# Database tablalarini yaratish
+# Run database migrations
 docker compose exec uzte-app php artisan migrate --force
 
-# Storage link yaratish
+# Create storage symlink
 docker compose exec uzte-app php artisan storage:link
 
-# Production cache yaratish
+# Build production cache
 docker compose exec uzte-app php artisan config:cache
 docker compose exec uzte-app php artisan route:cache
 docker compose exec uzte-app php artisan view:cache
 ```
 
-## 2. Yangi deploy (kod yangilanganda)
+## 2. New deploy (when code is updated)
 
 ```bash
-# Konteynerlarni qayta build qilish
+# Rebuild containers
 docker compose up -d --build
 
-# Yangi migratsiyalarni ishlatish
+# Run new migrations
 docker compose exec uzte-app php artisan migrate --force
 
-# Cacheni yangilash
+# Refresh cache
 docker compose exec uzte-app php artisan config:cache
 docker compose exec uzte-app php artisan route:cache
 docker compose exec uzte-app php artisan view:cache
 ```
 
-## 3. Foydali buyruqlar
+## 3. Useful commands
 
 ```bash
-# Konteynerlar holatini ko'rish
+# Check container status
 docker compose ps
 
-# PHP konteyner loglarini ko'rish
+# View PHP container logs
 docker compose logs uzte-app
 
-# Barcha loglarni real-time ko'rish
+# View all logs in real-time
 docker compose logs -f
 
-# Konteynerlarni to'xtatish
+# Stop containers
 docker compose down
 
-# Konteynerlarni to'xtatish + database ni o'chirish
+# Stop containers and remove database volumes
 docker compose down -v
 ```
 
-## 4. Xatolik bo'lsa
+## 4. Troubleshooting
 
 ```bash
-# Barcha cacheni tozalash
+# Clear all caches
 docker compose exec uzte-app php artisan optimize:clear
 
-# Permissionlarni qayta to'g'rilash
+# Fix permissions
 docker compose exec -u root uzte-app sh -c \
   "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && chmod -R 775 /var/www/storage /var/www/bootstrap/cache"
 
-# Konteyner ichiga kirish (debug uchun)
+# Enter container shell (for debugging)
 docker compose exec uzte-app sh
 ```
 
-## Servicelar
+## Services
 
-| Service | Port | Tavsif |
-|---------|------|--------|
+| Service | Port | Description |
+|---------|------|-------------|
 | uzte-nginx | 8090 | Web server |
-| uzte-app | 9000 | PHP-FPM (ichki) |
+| uzte-app | 9000 | PHP-FPM (internal) |
 | uzte-postgres | 5432 | PostgreSQL |
 | uzte-pgadmin | 5050 | pgAdmin panel |
 | uzte-redis | 6379 | Redis cache |

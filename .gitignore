@@ -24,3 +24,13 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+/.agents
+/.ai
+/.claude
+/.codex
+/.cursor
+/.gemini
+/.github
+/.junie
+/.mcp.json
+.DS_Store
