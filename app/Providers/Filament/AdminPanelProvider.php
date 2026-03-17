@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\MenuManager\FilamentMenuManagerPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -54,6 +55,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                FilamentMenuManagerPlugin::make()
+                    ->locations([
+                        'primary' => 'Primary',
+                        'footer' => 'Footer',
+                    ])
+                    ->navigationGroup('Content')
+                    ->navigationIcon('heroicon-o-bars-3')
+                    ->navigationSort(10)
+                    ->navigationLabel('Menus'),
             ]);
     }
 }
